@@ -1,4 +1,6 @@
-# Stock/FX/Cryptocurrencies exchange in Python
+# CouchbasEx
+
+Stock/FX/Cryptocurrencies exchange in Python
 
 ## Pre-requisites
 
