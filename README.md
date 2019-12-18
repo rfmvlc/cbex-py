@@ -66,4 +66,8 @@ CREATE PRIMARY INDEX on cbex;
 
 ```
 $ python web-server.py
+...
+Running at http://localhost:8888
+Live Prices WebSocket opened
+CB Status WebSocket opened
 ```
