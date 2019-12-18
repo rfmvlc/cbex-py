@@ -31,6 +31,10 @@ pip install twisted tornado
 
 Please adjust your settings on *settings.py* file
 
+#### Create bucket
+
+Please log to admin console and create bucket *cbse*
+
 #### Create dataset 
 ```
 python2 create_dataset.py
