@@ -1,5 +1,4 @@
-# stock-exchange
-CB Demo with a stock exchange theme
+# CB Demo with a stock exchange theme
 
 ## Pre-requisites
 Couchbase Server 6.x
