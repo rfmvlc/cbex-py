@@ -1,7 +1,9 @@
-# CB Demo with a stock exchange theme
+# Stock/FX/Cryptocurrencies exchange in Python
 
 ## Pre-requisites
-Couchbase Server 6.x
+
+- Couchbase Server 6.x
+- Python 2.7.x
 
 ### MacOS
 
@@ -13,7 +15,7 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 
 > For more info click [here](https://brew.sh/index_es)
 
-#### Install Python 2
+#### Install Python 2.7.x
 
 ```
 $ brew install python@2
