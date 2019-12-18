@@ -11,7 +11,7 @@ CB Demo With a Stock Exchange Theme
 #### Install brew
 
 ```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 > For more info click [here](https://brew.sh/index_es)
@@ -19,13 +19,13 @@ CB Demo With a Stock Exchange Theme
 #### Install Python 2
 
 ```
-brew install python@2
+$ brew install python@2
 ```
 
 ##### Install Python 2 dependencies
 
 ```
-pip install twisted tornado
+$ pip install twisted tornado
 ```
 #### Settings
 
@@ -37,7 +37,7 @@ Please log to admin console and create bucket *cbse*
 
 #### Create dataset 
 ```
-python2 create_dataset.py
+$ python2 create_dataset.py
 ```
 #### Create index
 
@@ -50,7 +50,7 @@ CREATE PRIMARY INDEX on cbse;
 #### Start and enjoy!
 
 ```
-python2 web-server.py
+$ python2 web-server.py
 ```
 
 
