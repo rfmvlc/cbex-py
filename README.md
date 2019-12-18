@@ -11,13 +11,11 @@ Stock/FX/Cryptocurrencies exchange demo application on Python and Couchbase
 
 #### Edit /etc/hosts
 
-Open **/etc/hosts** file as **sudo**:
-
 ```
 $ sudo open /etc/hosts
 ```
 
-Add Couchbase Server Cluster IP as cbex-cluster
+Add Couchbase Server Cluster IP as **cbex-cluster**
 
 ```
 127.0.0.1 cbex-cluster
@@ -34,6 +32,7 @@ $ pip install twisted tornado
 Update the settings to your cluster configuration
 
 ```
+...
 # Username of the data user
 USERNAME = "Your User"
 # Password of the data user
@@ -42,6 +41,7 @@ PASSWORD = "Your Password"
 ADMIN_USER = "Administrator User"
 # Administrator password
 ADMIN_PASS = "Administrator Password"
+...
 ```
 
 #### Create bucket
