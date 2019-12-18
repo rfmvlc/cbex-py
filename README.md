@@ -27,6 +27,10 @@ brew install python@2
 ```
 pip install twisted tornado
 ```
+#### Settings
+
+Please adjust your settings on *settings.py* file
+
 #### Create dataset 
 ```
 python2 create_dataset.py
