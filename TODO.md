@@ -1,7 +1,7 @@
-TODO LIST
----------
-Must
------
+
+
+# Must
+
 * (DH) Write script
 * More orders on the order page (scrolling faster?)
 * (MC) Stock price fluctuation calculation (7%)
@@ -18,8 +18,8 @@ Must
 * Why does the visualiser stop dead after a failover
 
 
-Nice to have
-----
+# Nice to have
+
 * Open and Close Market
 * Mobile App: differentiate online / offline
 * Mobile App: "delete content" startup button
