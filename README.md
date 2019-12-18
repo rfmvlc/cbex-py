@@ -1,6 +1,6 @@
 # CouchbasEx
 
-Stock/FX/Cryptocurrencies exchange in Python
+Stock/FX/Cryptocurrencies exchange demo application on Python and Couchbase
 
 ## Pre-requisites
 
