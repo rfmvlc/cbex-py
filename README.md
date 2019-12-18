@@ -22,7 +22,7 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 $ brew install python@2
 ```
 
-##### Install Python 2 dependencies
+#### Install Python 2 dependencies
 
 ```
 $ pip install twisted tornado
