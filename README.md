@@ -10,11 +10,11 @@ CB Demo With a Stock Exchange Theme
 
 #### Install brew
 
-More info [here](https://brew.sh/index_es)
-
 ```
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
+
+> For more info click [here](https://brew.sh/index_es)
 
 #### Install Python 2
 
