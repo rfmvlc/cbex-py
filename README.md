@@ -1,10 +1,8 @@
 # stock-exchange
-CB Demo With a Stock Exchange Theme
-
-## Release notes 1.1
-- Upgraded for Couchbase Server 6.x
+CB Demo With a Stock Exchange Theme pgraded for 
 
 ## Pre-requisites
+Couchbase Server 6.x
 
 ### MacOS
 
@@ -41,7 +39,7 @@ $ python2 create_dataset.py
 ```
 #### Create index
 
-- Log in to your admin console and create the index using the following command:
+Login on admin console and create primary index using the following command on query editor:
 
 ```
 CREATE PRIMARY INDEX on cbse;
