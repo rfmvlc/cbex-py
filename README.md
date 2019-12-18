@@ -6,8 +6,6 @@ CB Demo With a Stock Exchange Theme
 
 ## Pre-requisites
 
-Pre-requisites per O.S.
-
 ### MacOS
 
 #### Install brew
@@ -19,11 +17,13 @@ More info [here](https://brew.sh/index_es)
 ```
 
 #### Install Python 2
+
 ```
 brew install python@2
 ```
 
 ##### Install Python 2 dependencies
+
 ```
 pip install twisted tornado
 ```
