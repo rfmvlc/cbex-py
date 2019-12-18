@@ -9,6 +9,22 @@ Stock/FX/Cryptocurrencies exchange demo application on Python and Couchbase
 
 ### MacOS
 
+#### Edit /etc/hosts
+
+
+
+Open **/etc/hosts** file as **sudo**:
+
+```
+$ sudo open /etc/hosts
+```
+
+Add Couchbase Server Cluster IP as cbex-cluster:
+```
+127.0.0.1 cbex-cluster
+```
+
+
 #### Install brew
 
 ```
@@ -30,11 +46,11 @@ $ pip install twisted tornado
 ```
 #### Settings
 
-Please adjust your settings on *settings.py* file
+Please adjust your settings on **settings.py** file
 
 #### Create bucket
 
-Please log to admin console and create bucket *cbse*
+Please log to admin console and create bucket *cbex**
 
 #### Create dataset 
 ```
@@ -45,7 +61,7 @@ $ python2 create_dataset.py
 Login on admin console and create primary index using the following command on query editor:
 
 ```
-CREATE PRIMARY INDEX on cbse;
+CREATE PRIMARY INDEX on cbex;
 ```
 
 #### Start and enjoy!
