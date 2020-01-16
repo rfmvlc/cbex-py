@@ -1,53 +1,56 @@
-# stock-exchange
-CB Demo With a Stock Exchange Theme
+# CBEX
 
-## Release notes
-- Upgraded for Couchbase Server 6.x
-- Upgraded for Python 3.x
+Stock/Crypto-currencies exchange demo application
+===
 
 ## Pre-requisites
 
-### MacOS
+- Couchbase Server 6.x
+- Python 3.x
 
-#### Install brew
-
-```
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-> For more info click [here](https://brew.sh/index_es)
-
-##### Install Python
+## Install Python dependencies
 
 ```
 $ pip install -r requirements.txt
 ```
-#### Settings
 
-Please adjust your settings on *settings.py* file
+## Settings (settings.py file)
 
-#### Create bucket
-
-Please log to admin console and create bucket *cbex*
-
-#### Create dataset 
-```
-$ python2 create_dataset.py
-```
-#### Create index
-
-- Log in to your admin console and create the index using the following command:
+Update the settings to your cluster configuration
 
 ```
-CREATE PRIMARY INDEX on cbse;
+...
+# Username of the data user
+USERNAME = "Your User"
+# Password of the data user
+PASSWORD = "Your Password"
+# Administrator username
+ADMIN_USER = "Administrator User"
+# Administrator password
+ADMIN_PASS = "Administrator Password"
+...
 ```
 
-#### Start and enjoy!
+## Create dataset 
 
 ```
-$ python2 web-server.py
+$ python create_dataset.py
 ```
 
+## Create indexes
 
+Login into the admin console and create primary index on **cbex** bucket
 
+```
+CREATE PRIMARY INDEX on cbex;
+```
 
+## Start and enjoy!
+
+```
+$ python app.py
+...
+Running at http://localhost:8888
+Live Prices WebSocket opened
+CB Status WebSocket opened
+```
