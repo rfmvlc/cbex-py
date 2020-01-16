@@ -33,7 +33,7 @@ Please adjust your settings on *settings.py* file
 
 #### Create bucket
 
-Please log to admin console and create bucket *cbse*
+Please log to admin console and create bucket *cbex*
 
 #### Create dataset 
 ```

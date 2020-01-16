@@ -1,9 +1,9 @@
 # Bucket name
-BUCKET_NAME = "cbse"
+BUCKET_NAME = "cbex"
 # Stock file model
 STOCKS_FILE="stocks.json"
 # The list of nodes to use as 'AWS' nodes
-CLUSTER_NODES = ["cbse-cluster"]
+CLUSTER_NODES = ["cbex-cluster"]
 # Exposed web port e.g. 8888 or 80
 WEB_PORT = 8888
 # Whether the current cluster is on AWS
