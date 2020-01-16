@@ -31,7 +31,7 @@ http_client = AsyncHTTPClient()
 
 
 def get_image_for_product(product):
-    print("erm....get_image_for_product")
+    print "erm....get_image_for_product"
     return None
 
 
@@ -51,7 +51,7 @@ def get_url(endpoint, host_list=bucket.server_nodes, raise_exception=False):
                 response = yield http_client.fetch(request)
                 raise tornado.gen.Return((tornado.escape.json_decode(response.body), host))
             except tornado.httpclient.HTTPError as e:
-                print(("Could not retrieve URL: " + str(target_url) + str(e)))
+                print ("Could not retrieve URL: " + str(target_url) + str(e))
                 exceptions.append(e)
 
         if len(exceptions) == len(host_list) and raise_exception:
@@ -67,7 +67,7 @@ def get_url(endpoint, host_list=bucket.server_nodes, raise_exception=False):
 def get_node_status():
     default_status = {"hostname": "n/a", "ops": 0, "status": "out"}
 
-    node_list = [dict(default_status) for _ in range(5)]
+    node_list = [dict(default_status) for _ in xrange(5)]
     if not aws:
         node_list[0]['ops'] = 400
         raise tornado.gen.Return(node_list)
@@ -148,7 +148,7 @@ def fts_enabled():
 def n1ql_enabled():
     index_response, _ = yield get_url(INDEX_URL)
     raise tornado.gen.Return('indexes' in index_response and any(
-        index['index'] == 'category' and index['status'] == 'Ready' for index
+        index['index'] == u'category' and index['status'] == u'Ready' for index
         in index_response['indexes']))
 
 

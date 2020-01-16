@@ -19,7 +19,7 @@ SDK_CLIENT.timeout = 15
 
 while True:
     try:
-        print(".")
+        print "."
         results = SDK_CLIENT.n1ql_query(
         'SELECT symbol,price FROM {} WHERE symbol IS NOT MISSING AND price IS NOT MISSING'.format(bucket_name, ))
         for row in results:

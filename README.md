@@ -1,8 +1,9 @@
 # stock-exchange
 CB Demo With a Stock Exchange Theme
 
-## Release notes 1.1
+## Release notes
 - Upgraded for Couchbase Server 6.x
+- Upgraded for Python 3.x
 
 ## Pre-requisites
 
@@ -16,16 +17,10 @@ $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/inst
 
 > For more info click [here](https://brew.sh/index_es)
 
-#### Install Python 2
+##### Install Python
 
 ```
-$ brew install python@2
-```
-
-##### Install Python 2 dependencies
-
-```
-$ pip install twisted tornado
+$ pip install -r requirements.txt
 ```
 #### Settings
 

@@ -2,8 +2,8 @@
 BUCKET_NAME = "cbex"
 # Stock file model
 STOCKS_FILE="stocks.json"
-# The list of nodes to use as 'AWS' nodes
-CLUSTER_NODES = ["cbex-cluster"]
+# The list of nodes
+CLUSTER_NODES = ["localhost"]
 # Exposed web port e.g. 8888 or 80
 WEB_PORT = 8888
 # Whether the current cluster is on AWS
@@ -25,3 +25,5 @@ VIEW_NAME = "by_timestamp"
 PRODUCT_LIST="stock_list"
 # How many stocks should we use?
 NUM_STOCKS=200
+# Flavor: stocks/cryto
+FLAVOR="stocks"
