@@ -8,6 +8,8 @@ Stock/Crypto-currencies exchange demo application
 - Couchbase Server 6.x
 - Python 3.x
 
+> Setup your environment as described on Pyhton SDK docs [here](https://docs.couchbase.com/python-sdk/current/start-using-sdk.html)
+
 ## Install Python dependencies
 
 ```

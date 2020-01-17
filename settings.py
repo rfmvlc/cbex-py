@@ -16,6 +16,8 @@ PASSWORD = "password"
 ADMIN_USER = "Administrator"
 # Administrator password
 ADMIN_PASS = "password"
+# Administration port
+ADMIN_PORT = 8091
 # Name of the design doc
 DDOC_NAME = "orders"
 # Name of the view
