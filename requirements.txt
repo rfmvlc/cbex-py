@@ -1,3 +1,4 @@
 twisted
 tornado
 couchbase
+requests

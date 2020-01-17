@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
-.submit-section{
+.submit-section {
     text-align: center;
 }
 
 
-.submit-btn{
+.submit-btn {
     border: 2px solid #fff;
     color: #e81c21;
     width: 100%;
@@ -29,14 +29,15 @@
     width: 75px;
 }
 
- .btn-product:hover {
+.btn-product:hover {
     color: white;
     opacity: 0.65;
 }
+
 .btn-product.active {
     background-color: white;
     border-color: #605ca8;
-    color: #605ca8 ;
+    color: #605ca8;
 }
 
 
@@ -47,12 +48,13 @@
 .cover {
     padding: 0 1.5rem;
 }
+
 .cover .btn-lg {
     padding: .75rem 1.25rem;
     font-weight: bold;
 }
 
-.search-container{
+.search-container {
     padding-top: 10px;
     padding-bottom: 10px;
     border-style: solid;
@@ -60,39 +62,40 @@
     border-radius: 25px;
 }
 
-.search-btn{
+.search-btn {
     background: transparent;
     border: none;
     font-size: 30px;
 }
 
-.search-input{
+.search-input {
     height: 100%;
     float: left;
     width: calc(100% - 50px);
-    background: linear-gradient(to bottom, rgba(51,51,51,1) 0%,rgba(32,26,25,1) 100%);
+    background: linear-gradient(to bottom, rgba(51, 51, 51, 1) 0%, rgba(32, 26, 25, 1) 100%);
     border: none;
     color: #FFF;
     padding: 11px 15px 15px 10px;
 }
+
 /*
  * Footer
  */
 
 .mastfoot {
-    color: rgba(255,255,255,.5);
+    color: rgba(255, 255, 255, .5);
 }
 
-.type-btn{
+.type-btn {
     border: 2px solid #fff;
-  /*  width: 80%;*/
+    /*  width: 80%;*/
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     text-transform: capitalize;
     text-align: center;
-background-color: #605ca8; 
-color: white;
+    background-color: #605ca8;
+    color: white;
     cursor: pointer;
     display: inline-block;
     letter-spacing: -0.025em;
@@ -104,7 +107,7 @@ color: white;
     transition: all 0.3s;
 }
 
-.type-btn:hover{
+.type-btn:hover {
     color: white;
     opacity: 0.65;
     border-color: white;
@@ -122,13 +125,16 @@ color: white;
     border-color: yellow;
     border-radius: 25px;
 }
+
 .table > tbody > tr > td {
-     vertical-align: middle;
-     font-size: 18px
+    vertical-align: middle;
+    font-size: 18px
 }
+
 .table > tbody > tr > td > button {
-font-size: 18px
+    font-size: 18px
 }
+
 .table > thead > tr > th {
-font-size: 18px
+    font-size: 18px
 }

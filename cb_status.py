@@ -13,7 +13,7 @@ BUCKET_URL = "/pools/default/buckets"
 NODE_URL = "/pools/default/serverGroups"
 INDEX_URL = "/indexStatus"
 SERVICE_URL = "/pools/default/nodeServices"
-FTS_URL = "/api/index/English"
+FTS_URL = "/api/index/cbex"
 XDCR_URL = "/pools/default/remoteClusters"
 USERNAME = settings.ADMIN_USER
 PASSWORD = settings.ADMIN_PASS
@@ -95,24 +95,26 @@ def get_node_status():
         # Check for cluster members that are unhealthy (in risk of being failed)
         # We will highlight these with a red border
         elif node_info['clusterMembership'] == "active" and \
-                        node_info['status'] == "unhealthy":
+                node_info['status'] == "unhealthy":
             node_list[index]['status'] = "trouble"
         # Then, nodes that are either failed over, warming up or not rebalanced in
         # These will appear as faded
         elif node_info['clusterMembership'] == "inactiveFailed" or \
-                        node_info['clusterMembership'] == "inactiveAdded" or \
+                node_info['clusterMembership'] == "inactiveAdded" or \
                 (node_info['clusterMembership'] == "active" and
-                         node_info['status'] == "warmup"):
+                 node_info['status'] == "warmup"):
             node_list[index]['status'] = "dormant"
         # Any other status we'll just hide
         else:
             node_list[index]['status'] = "out"
     raise tornado.gen.Return(node_list)
 
+
 def strip_host(hostname):
-    stripped_host = hostname.replace("http://","")
-    stripped_host = stripped_host.replace(":8091","")
+    stripped_host = hostname.replace("http://", "")
+    stripped_host = stripped_host.replace(":8091", "")
     return stripped_host
+
 
 @tornado.gen.coroutine
 def fts_nodes():

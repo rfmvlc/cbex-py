@@ -1,0 +1,37 @@
+{
+  "type": "fulltext-index",
+  "name": "cbex",
+  "sourceType": "couchbase",
+  "sourceName": "cbex",
+  "planParams": {
+    "maxPartitionsPerPIndex": 171
+  },
+  "params": {
+    "doc_config": {
+      "docid_prefix_delim": ":",
+      "docid_regexp": "",
+      "mode": "docid_prefix",
+      "type_field": "type"
+    },
+    "mapping": {
+      "analysis": {},
+      "default_analyzer": "standard",
+      "default_datetime_parser": "dateTimeOptional",
+      "default_field": "_all",
+      "default_mapping": {
+        "dynamic": true,
+        "enabled": true
+      },
+      "default_type": "_default",
+      "docvalues_dynamic": true,
+      "index_dynamic": true,
+      "store_dynamic": false,
+      "type_field": "_type"
+    },
+    "store": {
+      "indexType": "scorch",
+      "kvStoreName": ""
+    }
+  },
+  "sourceParams": {}
+}

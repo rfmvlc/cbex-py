@@ -1,19 +1,17 @@
-function setAlpha(node_elem, new_alpha){
+function setAlpha(node_elem, new_alpha) {
     var bg = $(node_elem).css('background-color');
-    if (bg.startsWith("rgba(")){
-        strip_chars=5;
-    }
-    else
-    {
-        strip_chars=4;
+    if (bg.startsWith("rgba(")) {
+        strip_chars = 5;
+    } else {
+        strip_chars = 4;
     }
 
     var rgb_array = bg.slice(strip_chars).split(',');
-    var newBg = 'rgba('+parseInt(rgb_array[0])+','+parseInt(rgb_array[1])+','+parseInt(rgb_array[2])+','+new_alpha+')';
-    $(node_elem).css('background-color',newBg);
+    var newBg = 'rgba(' + parseInt(rgb_array[0]) + ',' + parseInt(rgb_array[1]) + ',' + parseInt(rgb_array[2]) + ',' + new_alpha + ')';
+    $(node_elem).css('background-color', newBg);
 }
 
-window.onload = function NodeStatusSocket(){
+window.onload = function NodeStatusSocket() {
 
     $(".azure").hide();
 
@@ -21,79 +19,73 @@ window.onload = function NodeStatusSocket(){
         // Let us open a web socket
         var ws = new WebSocket("ws://" + location.host + "/nodestatus");
         LIVE_PARTICLES = 400;
-        ws.onopen = function() {
+        ws.onopen = function () {
             // Web Socket is connected, send data using send()
             ws.send("Node Status Connected");
         };
 
-        ws.onmessage = function (evt)
-        {
+        ws.onmessage = function (evt) {
             var msg = JSON.parse(evt.data);
             total_ops = 0;
-            for (i = 0; i < msg['nodes'].length; i++){
+            for (i = 0; i < msg['nodes'].length; i++) {
                 node = msg['nodes'][i];
-                node_elem = "#node" + (i+1);
-                if (node['status'] == "out"){
+                node_elem = "#node" + (i + 1);
+                if (node['status'] == "out") {
                     $(node_elem).hide();
                     if (i == 0)
-                        MAN_DOWN=false;
-                }
-                else if (node['status'] == "trouble"){
+                        MAN_DOWN = false;
+                } else if (node['status'] == "trouble") {
                     $(node_elem).addClass('trouble-node');
                     $(node_elem).css("background-image", "url(img/trouble_server_icon.png)");
                     $(node_elem).show();
                     if (i == 0) {
-                        setAlpha(node_elem,0);
+                        setAlpha(node_elem, 0);
                         console.log("man down")
                         MAN_DOWN = true;
                     }
-                }
-                else if (node['status'] == "dormant"){
+                } else if (node['status'] == "dormant") {
                     $(node_elem).show();
                     if (i == 0) {
-                        setAlpha(node_elem,0);
+                        setAlpha(node_elem, 0);
                         $(node_elem).removeClass('trouble-node');
                         $(node_elem).css("background-image", "url(img/failed_server_icon.png)");
                         MAN_DOWN = false;
                     }
-                }
-                else {
-                    setAlpha(node_elem,1);
+                } else {
+                    setAlpha(node_elem, 1);
                     $(node_elem).show();
-                    if (i == 0){
+                    if (i == 0) {
                         console.log("back once again");
                         $(node_elem).removeClass('trouble-node');
                         $(node_elem).css("background-image", "url(img/server_icon.png)");
-                        MAN_DOWN=false;
+                        MAN_DOWN = false;
                     }
                 }
                 total_ops += node['ops'];
             }
-            LIVE_PARTICLES = Math.floor(total_ops/3.0);
-            if (msg['xdcr']){
+            LIVE_PARTICLES = Math.floor(total_ops / 3.0);
+            if (msg['xdcr']) {
                 $('.azure').show();
-            }
-            else{
+            } else {
                 $('.azure').hide();
             }
         };
 
-        ws.onclose = function()
-        {
+        ws.onclose = function () {
             LIVE_PARTICLES = 400;
-            for (i= 0; i < 5; i++){
-                node_elem = "#node" + (i+1);
-                setAlpha(node_elem,0.25);
+            for (i = 0; i < 5; i++) {
+                node_elem = "#node" + (i + 1);
+                setAlpha(node_elem, 0.25);
             }
             $(".azure").hide();
 
             // Try to reconnect in 5 seconds
-            setTimeout(function(){NodeStatusSocket()}, 5000);
+            setTimeout(function () {
+                NodeStatusSocket()
+            }, 5000);
 
         };
-    }
-    else
-    {
+    } else {
         // The browser doesn't support WebSocket
         alert("WebSocket NOT supported by your Browser!");
     }

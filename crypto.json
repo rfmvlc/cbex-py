@@ -1,1 +1,10 @@
-[{"sector":"Ethereum Black","starting_price":327.17,"symbol":"ETBT","company":"Ethereum Black","price":327.17,"priority": 1}]
+[
+  {
+    "sector": "Ethereum Black",
+    "starting_price": 327.17,
+    "symbol": "ETBT",
+    "company": "Ethereum Black",
+    "price": 327.17,
+    "priority": 1
+  }
+]

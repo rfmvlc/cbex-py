@@ -1,7 +1,11 @@
 # Bucket name
 BUCKET_NAME = "cbex"
+# FTS index
+FTS_INDEX_FILE = "fts_index.json"
+# FTS index name
+FTS_INDEX_NAME = "cbex"
 # Stock file model
-STOCKS_FILE="stocks.json"
+STOCKS_FILE = "stocks.json"
 # The list of nodes
 CLUSTER_NODES = ["localhost"]
 # Exposed web port e.g. 8888 or 80
@@ -16,20 +20,18 @@ PASSWORD = "password"
 ADMIN_USER = "Administrator"
 # Administrator password
 ADMIN_PASS = "password"
-# Administration port
-ADMIN_PORT = 8091
 # Name of the design doc
 DDOC_NAME = "orders"
 # Name of the view
 VIEW_NAME = "by_timestamp"
 # Doc containing all stocks. 
 # Single field called "symbols" which is a list containing all product keys.
-PRODUCT_LIST="stock_list"
+PRODUCT_LIST = "stock_list"
 # How many stocks should we use?
-NUM_STOCKS=200
+NUM_STOCKS = 200
 # Flavor: stocks/crytoc
-FLAVOR="stocks"
-# Default timeout
-TIMEOUT=15
+FLAVOR = "stocks"
+# Default timeout (5s)
+TIMEOUT = 5
 # Default RAM Quota
-BUCKET_RAM_QUOTA=1024
+BUCKET_RAM_QUOTA = 1024

@@ -1,27 +1,27 @@
 #!/usr/bin/env python
-from collections import deque
 import datetime
-import math
 import random
 import time
-import urllib.request, urllib.parse, urllib.error
+import urllib.error
+import urllib.parse
+import urllib.request
+from collections import deque
 
-import tornado.gen
 import tornado.escape
+import tornado.gen
 import tornado.ioloop
+import tornado.platform.twisted
 import tornado.web
 import tornado.websocket
-import tornado.platform.twisted
 from tornado.httpclient import AsyncHTTPClient, HTTPRequest
 
-#install this before importing anything else, or VERY BAD THINGS happen
+# install this before importing anything else, or VERY BAD THINGS happen
 tornado.platform.twisted.install()
 
 from txcouchbase.bucket import Bucket
 
 import cb_status
 import settings
-
 
 socket_list = []
 bucket_name = settings.BUCKET_NAME
@@ -40,6 +40,7 @@ n1ql_enabled = False
 xdcr_enabled = False
 price_data = {}
 portfolio_cache = []
+
 
 class ExchangeHandler(tornado.web.RequestHandler):
     @tornado.gen.coroutine
@@ -65,17 +66,21 @@ class ExchangeHandler(tornado.web.RequestHandler):
         keys = first_keys + rest
         self.render("www/exchange.html", stocks=stocks, keys=keys, sectors=sectors)
 
+
 class LatestOrdersHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("www/orders.html")
+
 
 class StockLeaderboardHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("www/stock_performance.html")
 
+
 class InvestorLeaderboardHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("www/investor_performance.html")
+
 
 class GeoLeaderboardHandler(tornado.web.RequestHandler):
     @tornado.gen.coroutine
@@ -95,17 +100,19 @@ class GeoLeaderboardHandler(tornado.web.RequestHandler):
             grand_total = 0
             for row in query_res:
                 profit = (row['quantity'] * price_data[row['symbol']]['price']) - 100
-                row['profit'] = round(profit,2)
-                row['quantity'] = round(row['quantity'],2)
+                row['profit'] = round(profit, 2)
+                row['quantity'] = round(row['quantity'], 2)
                 grand_total += profit
                 investments.append(row)
             if investments:
-                geo_data[geo] = {"total": round(grand_total,2), "investments": investments}
+                geo_data[geo] = {"total": round(grand_total, 2), "investments": investments}
         self.render("www/geo_leaderboard.html", prices=price_data, geo_data=geo_data)
+
 
 class ClusterVisHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("www/visualiser.html")
+
 
 class CBStatusWebSocket(tornado.websocket.WebSocketHandler):
     def open(self):
@@ -168,6 +175,7 @@ class LiveOrdersWebSocket(tornado.websocket.WebSocketHandler):
                 self.callback.stop()
                 yield tornado.gen.sleep(2)
                 self.callback.start()
+
 
 class StockLeaderboardWebSocket(tornado.websocket.WebSocketHandler):
     def open(self):
@@ -276,11 +284,11 @@ class SubmitHandler(tornado.web.RequestHandler):
         data['ts'] = int(time.time())
         data['type'] = "order"
         order = []
-        for i in range (0,5):
+        for i in range(0, 5):
             stock = data['order'][i]
             purchase_price = float(price_data[stock[6:]]['price'])
             quantity = 100.0 / purchase_price
-            d = {'symbol': stock[6:], 'purchase_price': purchase_price, 'quantity': quantity }
+            d = {'symbol': stock[6:], 'purchase_price': purchase_price, 'quantity': quantity}
             order.append(d)
         data['order'] = order
         yield bucket.upsert(key, data)
@@ -301,7 +309,7 @@ class SearchHandler(tornado.web.RequestHandler):
             data = '{"query": {"query": "' + query + '"}, "highlight": null, "fields": null, "facets": null, "explain": false}'
             fts_node = random.choice(fts_nodes)
             request = HTTPRequest(
-                url='http://{}:8094/api/index/English/query'.format(fts_node),
+                url='http://{}:8094/api/index/cbex/query'.format(fts_node),
                 method='POST', body=data, auth_username=settings.ADMIN_USER,
                 auth_password=settings.ADMIN_PASS, auth_mode='basic',
                 headers={'Content-Type': 'application/json'})
@@ -324,7 +332,7 @@ class FilterHandler(tornado.web.RequestHandler):
         data = self.get_query_argument('type')
         results = yield bucket.n1qlQueryAll(
             'SELECT meta().id FROM {} WHERE sector = "{}"'
-            .format(bucket_name, data))
+                .format(bucket_name, data))
 
         final_results = []
         for row in results:
@@ -345,6 +353,7 @@ def update_cb_status():
         fts_enabled = yield cb_status.fts_enabled()
         yield tornado.gen.sleep(0.5)
 
+
 @tornado.gen.coroutine
 def update_price_data():
     global price_data, portfolio_cache
@@ -353,15 +362,18 @@ def update_price_data():
         call_time = time.time()
         try:
             results = yield bucket.n1qlQueryAll(
-            'SELECT symbol,price,starting_price FROM {} WHERE symbol IS NOT MISSING AND price IS NOT MISSING'.format(bucket_name, ))
+                'SELECT symbol,price,starting_price FROM {} WHERE symbol IS NOT MISSING AND price IS NOT MISSING'.format(
+                    bucket_name, ))
         except Exception:
             continue
 
         final_results = {}
         for row in results:
-            price_change = round(((float(row['price']) - float(row['starting_price'])) * 100) / float(row['starting_price']) , 2)
+            price_change = round(
+                ((float(row['price']) - float(row['starting_price'])) * 100) / float(row['starting_price']), 2)
             price_data[row['symbol']] = {'price': float(row['price']), 'change': price_change}
-        query = "SELECT * FROM {} WHERE type='order' and ts > {} ORDER BY ts ASC LIMIT 50;".format(bucket_name, LATEST_TS)
+        query = "SELECT * FROM {} WHERE type='order' and ts > {} ORDER BY ts ASC LIMIT 50;".format(bucket_name,
+                                                                                                   LATEST_TS)
         try:
             res = yield bucket.n1qlQueryAll(query)
         except Exception:
@@ -386,8 +398,9 @@ def update_price_data():
 
         result_time = time.time()
         response_time = result_time - call_time
-        if response_time < 5: # don't go again til 5s has elaspsed 
+        if response_time < 5:  # don't go again til 5s has elaspsed
             yield tornado.gen.sleep(5 - response_time)
+
 
 def make_app():
     return tornado.web.Application([

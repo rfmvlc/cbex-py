@@ -1,11 +1,16 @@
 .table > tbody > tr > td {
-     vertical-align: middle;
-     font-size: 18px
+    vertical-align: middle;
+    font-size: 18px
 }
+
 .table > tbody > tr > td > button {
-font-size: 18px
+    font-size: 18px
 }
+
 .table > thead > tr > th {
-font-size: 18px
+    font-size: 18px
 }
-h3 { font-size: 30px}
+
+h3 {
+    font-size: 30px
+}
