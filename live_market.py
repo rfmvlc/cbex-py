@@ -21,7 +21,7 @@ while True:
     try:
         print(".")
         results = SDK_CLIENT.n1ql_query(
-        'SELECT symbol,price FROM {} WHERE symbol IS NOT MISSING AND price IS NOT MISSING'.format(bucket_name, ))
+        'SELECT symbol,price FROM {} WHERE symbol IS NOT MISSING AND price IS NOT MISSING'.format(bucket_name))
         for row in results:
             stock_key = "stock:"+ (row['symbol'])
             # perturb the price and round it to 2 decimal places

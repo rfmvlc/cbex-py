@@ -27,5 +27,9 @@ VIEW_NAME = "by_timestamp"
 PRODUCT_LIST="stock_list"
 # How many stocks should we use?
 NUM_STOCKS=200
-# Flavor: stocks/cryto
+# Flavor: stocks/crytoc
 FLAVOR="stocks"
+# Default timeout
+TIMEOUT=15
+# Default RAM Quota
+BUCKET_RAM_QUOTA=1024
