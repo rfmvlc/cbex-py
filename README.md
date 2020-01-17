@@ -39,14 +39,6 @@ ADMIN_PASS = "Administrator Password"
 $ python create_dataset.py
 ```
 
-## Create indexes
-
-Login into the admin console and create primary index on **cbex** bucket
-
-```
-CREATE PRIMARY INDEX on cbex;
-```
-
 ## Start and enjoy!
 
 ```
@@ -56,3 +48,10 @@ Running at http://localhost:8888
 Live Prices WebSocket opened
 CB Status WebSocket opened
 ```
+
+## Cleanup
+
+```
+$ python cleanup.py
+```
+
