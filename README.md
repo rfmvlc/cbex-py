@@ -1,6 +1,6 @@
 # CBEX
 
-Stock/Crypto-currencies exchange demo application
+Stock/Crypto-currency market exchange demo
 ===
 
 ## Pre-requisites
