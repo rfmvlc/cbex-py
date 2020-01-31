@@ -1,22 +1,17 @@
-# CBEX
-
-Stock/Crypto-currencies exchange demo application
-===
-
-## Pre-requisites
+# Pre-requisites
 
 - Couchbase Server 6.5.x
 - Python 3.6.x
 
-> Setup your environment as described on Pyhton SDK docs [here](https://docs.couchbase.com/python-sdk/current/start-using-sdk.html)
+> Setup your environment as described on Python SDK docs [here](https://docs.couchbase.com/python-sdk/current/start-using-sdk.html)
 
-## Install Python dependencies
+# Install Python dependencies
 
 ```
 $ pip install -r requirements.txt
 ```
 
-## Settings (settings.py file)
+# Settings (settings.py file)
 
 Update the settings to your cluster configuration
 
@@ -33,7 +28,7 @@ ADMIN_PASS = "Administrator Password"
 ...
 ```
 
-## Create dataset 
+# Create the dataset 
 
 ```
 $ python create_dataset.py
@@ -47,7 +42,7 @@ Creating fts index cbex on cbex...
 Indexes created successfully!
 ```
 
-## Start and enjoy!
+# Start and enjoy!
 
 ```
 $ python app.py
@@ -60,13 +55,12 @@ CB Status received: Exchange Node Status Socket Connected
 ('New Order: ', 'Couchbaser!', 1580323582)
 ```
 
-## Cleanup 
+# Cleanup 
 
-> Optional: Just in case of error on creation or environment delete
+> Optional
 
 ```
 $ python cleanup.py
 Cleaning up bucket cbex...
 Clean up finished!
 ```
-
