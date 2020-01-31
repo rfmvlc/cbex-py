@@ -18,13 +18,15 @@ Update the settings to your cluster configuration
 ```
 ...
 # Username of the data user
-USERNAME = "Your User"
+USERNAME = *****
 # Password of the data user
-PASSWORD = "Your Password"
+PASSWORD = *****
 # Administrator username
-ADMIN_USER = "Administrator User"
+ADMIN_USER = *****
 # Administrator password
-ADMIN_PASS = "Administrator Password"
+ADMIN_PASS = *****
+# The list of nodes
+CLUSTER_NODES = ["localhost", "127.0.0.1", *****]
 ...
 ```
 
