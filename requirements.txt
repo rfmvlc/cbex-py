@@ -1,4 +1,4 @@
 twisted==19.10.0
-tornado==5.1.1
+tornado==6.3.2
 couchbase
 requests
